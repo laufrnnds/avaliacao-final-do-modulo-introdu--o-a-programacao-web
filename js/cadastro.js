@@ -101,7 +101,7 @@ function verificarInputs(e) {
 }
 
 function salvarLocalStorage() {
-  let emailUser = document.querySelector("#emailcadastro").value;
+  let emailUser = inputEmail.value;
   let senhaUser = inputSenha.value;
   let recadosUser = [];
   let listaUsers = buscaListaUser()
