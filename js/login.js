@@ -9,8 +9,8 @@ if (login) {
 
 // -----> DECLARAÇÃO DAS VARIÁVEIS <-----
 
-let emailInput = document.getElementById("emaillogin");
-let senhaInput = document.getElementById("senhalogin");
+let emailInput = document.querySelector("#emaillogin");
+let senhaInput = document.querySelector("#senhalogin");
 let formLogin = document.querySelector("#formlogin");
 
 // -----> EVENTOS <-----
