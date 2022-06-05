@@ -18,7 +18,8 @@ let validaRepeteSenha = false;
 
 let formCadastro = document.querySelector("#formcadastro");
 
-let regraSenha = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+let regraSenha =
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
 // -----> EVENTOS <-----
 
@@ -104,7 +105,7 @@ function salvarLocalStorage() {
   let emailUser = inputEmail.value;
   let senhaUser = inputSenha.value;
   let recadosUser = [];
-  let listaUsers = buscaListaUser()
+  let listaUsers = buscaListaUser();
   let dadosUser = {
     emailUser,
     senhaUser,
@@ -114,21 +115,19 @@ function salvarLocalStorage() {
   console.log(dadosUser);
   listaUsers.push(dadosUser);
 
-  atualizaUser()
+  atualizaUser();
 
   let irLogin = confirm("Deseja ir para a página de login?");
 
   if (irLogin) {
     window.location = "./login.html";
   }
+}
 
-  function buscaListaUser() {
-    return JSON.parse(localStorage.getItem("usuario")) || [];
-  }
+function buscaListaUser() {
+  return JSON.parse(localStorage.getItem("usuario")) || [];
+}
 
-  function atualizaUser(){
-    return window.localStorage.setItem("usuario", JSON.stringify(listaUsers));
-  }
-
-  
+function atualizaUser() {
+  return window.localStorage.setItem("usuario", JSON.stringify(listaUsers));
 }
