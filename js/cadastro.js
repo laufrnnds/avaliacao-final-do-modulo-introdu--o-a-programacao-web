@@ -115,7 +115,7 @@ function salvarLocalStorage() {
   console.log(dadosUser);
   listaUsers.push(dadosUser);
 
-  atualizaUser();
+  atualizaUser(listaUsers);
 
   let irLogin = confirm("Deseja ir para a página de login?");
 
@@ -128,6 +128,6 @@ function buscaListaUser() {
   return JSON.parse(localStorage.getItem("usuario")) || [];
 }
 
-function atualizaUser() {
+function atualizaUser(listaUsers) {
   return window.localStorage.setItem("usuario", JSON.stringify(listaUsers));
 }

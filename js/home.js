@@ -38,7 +38,7 @@ function enviarRecado() {
   if (recado.descricao !== "" && recado.detalhamento !== "") {
     users[userPosicao].recadosUser.push(recado);
 
-    atualizaUser()
+    atualizaUser(users);
 
     window.location.reload();
   } else {
@@ -53,7 +53,7 @@ function mostrarRecados() {
     for (const index in listaRecados) {
       listaRecados[index].indice = index;
 
-      atualizaUser()
+      atualizaUser(users);
 
       let tabela = document.querySelector("#tabela");
 
@@ -122,7 +122,7 @@ function substituirRecado() {
     recadoEditado.descricao = descricaoInput.value;
     recadoEditado.detalhamento = detalhamentoInput.value;
     listaRecados[recadoEditado.indice] = recadoEditado;
-    atualizaUser()
+    atualizaUser(users);
     window.location.reload();
   } else {
     descricaoInput.value = "";
@@ -138,7 +138,7 @@ function apagarRecado(indiceDoRecado) {
 
   if (apaga) {
     listaRecados.splice([indiceDoRecado], 1);
-    atualizaUser()
+    atualizaUser(users);
     window.location.reload();
     return;
   } else {
@@ -150,6 +150,6 @@ function buscaUser() {
   return users[userPosicao].recadosUser;
 }
 
-function atualizaUser(){
+function atualizaUser(users) {
   return window.localStorage.setItem("usuario", JSON.stringify(users));
 }
